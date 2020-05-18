@@ -105,10 +105,8 @@ public class NewUser extends JInternalFrame implements ActionListener {
         }
     }
 
-}
-
-public class NewUserTest {
     public static void main(String args){
         NewUser nw = new NewUser();
     }
+
 }
