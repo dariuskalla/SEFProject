@@ -7,9 +7,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
-/*Aici am scris codul pentru new user. compileaza fara erori dar nu stiu cum sa-i fac un test. am incercat si fara build
-* tool si cu build tool nimic. m-am prajit destul cu asta. acum va las pe unul dintre voi sa incercati. poate reusiti sa va
-* dati seama cum e face cacatul asta*/
+
 public class Register extends JInternalFrame implements ActionListener {
 
     private JRadioButton FitnessEnthusiast, Admin, Trainer;
@@ -35,7 +33,7 @@ public class Register extends JInternalFrame implements ActionListener {
         txtUsername = new JTextField();
         txtPassword = new JPasswordField();
         txtCPassword = new JPasswordField();
-        btnSave = new JButton("Save", new ImageIcon(ClassLoader.getSystemResource("Images/save.png")));
+        btnSave = new JButton("Save");
         lblUsername.setBounds(30, 30, 100, 30);
         lblPassword.setBounds(30, 80, 150, 30);
         lblCPassword.setBounds(30, 130, 150, 30);
@@ -77,7 +75,7 @@ public class Register extends JInternalFrame implements ActionListener {
                         JOptionPane.showMessageDialog(null, "Password and Confirm Password fields do not match", "Error", JOptionPane.ERROR_MESSAGE);
                         return;
                     }
-                    String str = "insert into UAD(Username, Password, Type) values(?, ?, ?)";
+                    String str = "insert into (Username, Password, Type) values(?, ?, ?)";
                     PreparedStatement ps = con.prepareStatement(str);
                     if (FitnessEnthusiast.isSelected()) {
                         type = "FitnessEnthusiast";
