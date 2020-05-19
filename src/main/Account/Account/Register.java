@@ -10,7 +10,7 @@ import java.sql.Statement;
 /*Aici am scris codul pentru new user. compileaza fara erori dar nu stiu cum sa-i fac un test. am incercat si fara build
 * tool si cu build tool nimic. m-am prajit destul cu asta. acum va las pe unul dintre voi sa incercati. poate reusiti sa va
 * dati seama cum e face cacatul asta*/
-public class NewUser extends JInternalFrame implements ActionListener {
+public class Register extends JInternalFrame implements ActionListener {
 
     private JRadioButton FitnessEnthusiast, Admin, Trainer;
     private JLabel lblUsername, lblPassword, lblCPassword;
@@ -19,7 +19,7 @@ public class NewUser extends JInternalFrame implements ActionListener {
     private JButton btnSave;
     private ButtonGroup group;
 
-    public NewUser() {
+    public Register() {
         super("User registration", false, true, false, true);
         this.setLayout(null);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -104,9 +104,4 @@ public class NewUser extends JInternalFrame implements ActionListener {
             JOptionPane.showMessageDialog(null, "Error on database connection, Cannot perform database operation", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-
-    public static void main(String args){
-        NewUser nw = new NewUser();
-    }
-
 }
