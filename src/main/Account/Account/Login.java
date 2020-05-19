@@ -29,8 +29,8 @@ public class Login extends JFrame implements ActionListener {
         this.password = new JLabel("Password");
         this.txtUsername = new JTextField();
         this.txtPassword = new JPasswordField();
-        this.login = new JButton("Login", new ImageIcon(ClassLoader.getSystemResource("Images/login.png")));
-        this.cancel = new JButton("Cancel", new ImageIcon(ClassLoader.getSystemResource("Images/cancel.png")));
+        this.login = new JButton("Login");
+        this.cancel = new JButton("Cancel");
         this.username.setBounds(50, 40, 140, 25);
         this.txtUsername.setBounds(150, 40, 130, 25);
         this.password.setBounds(50, 80, 140, 25);
@@ -55,7 +55,7 @@ public class Login extends JFrame implements ActionListener {
 
                 try {
                     Statement st = con.createStatement();
-                    ResultSet rs = st.executeQuery("SELECT * FROM UAD WHERE Username='" + this.txtUsername.getText() + "' and Password='" + this.txtPassword.getText() + "'");
+                    ResultSet rs = st.executeQuery("Username='" + this.txtUsername.getText() + "' and Password='" + this.txtPassword.getText() + "'");
                     if (rs.next()) {
                         if (rs.getString(3).equals("Student")) {
                             User user = new User();
